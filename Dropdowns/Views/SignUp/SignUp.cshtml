@@ -17,18 +17,18 @@
                         @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
                     </div>
 
-                    @* State selection dropdown *@
+                    @* Court selection dropdown *@
                     <div class="form-group">
-                        @Html.LabelFor(m => m.State)
-                        @Html.DropDownListFor(m => m.State, // 1. Store selected value in Model.State;
+                        @Html.LabelFor(m => m.Courts)
+                        @Html.DropDownListFor(m => m.Courts, // 1. Store selected value in Model.Court;
                                                             // when page is rendered after postback,
-                                                            // take selected value from Model.State.
+                                                            // take selected value from Model.Court.
 
-                                              // 2. Take list of values from Model.States
-                                              Model.States,
+                                              // 2. Take list of values from Model.Courts
+                                              Model.Courts,
 
                                               // 3. Text for the first 'default' option
-                                              "- Please select a state -",
+                                              "- Please select a Court -",
 
                                               //4. A class name to assign to <select> tag
                                               new { @class = "form-control" })

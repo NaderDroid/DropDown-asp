@@ -12,68 +12,27 @@ namespace Dropdowns.Controllers
         public ActionResult SignUp()
         {
             // Let's get all states that we need for a DropDownList
-            var states = GetAllStates();
+            var courts = GetAllCourts();
 
             var model = new SignUpModel();
 
             // Create a list of SelectListItems so these can be rendered on the page
-            model.States = GetSelectListItems(states);
+            model.Courts = GetSelectListItems(courts);
 
             return View(model);
         }
-
-        //
-        // 2. Action method for handling user-entered data when 'Sign Up' button is pressed.
-        //
-        [HttpPost]
-        public ActionResult SignUp(SignUpModel model)
-        {
-            // Get all states again
-            var states = GetAllStates();
-
-            // Set these states on the model. We need to do this because
-            // only the selected value from the DropDownList is posted back, not the whole
-            // list of states
-            model.States = GetSelectListItems(states);
-
-            // In case everything is fine - i.e. both "Name" and "State" are entered/selected,
-            // redirect user to the "Done" page, and pass the user object along via Session
-            if (ModelState.IsValid)
-            {
-                Session["SignUpModel"] = model;
-                return RedirectToAction("Done");
-            }
-
-            // Something is not right - so render the registration page again,
-            // keeping the data user has entered by supplying the model.
-            return View("SignUp", model);
-        }
-
-        //
-        // 3. Action method for displaying 'Done' page
-        //
-        public ActionResult Done()
-        {
-            // Get Sign Up information from the session
-            var model = Session["SignUpModel"] as SignUpModel;
-
-            // Display Done.html page that shows Name and selected state.
-            return View(model);
-        }
-
-        // Just return a list of states - in a real-world application this would call
-        // into data access layer to retrieve states from a database.
-        private IEnumerable<string> GetAllStates()
+        
+        private IEnumerable<string> GetAllCourts()
         {
             return new List<string>
             {
-                "ACT",
-                "New South Wales",
-                "Northern Territories",
-                "Queensland",
-                "South Australia",
-                "Victoria",
-                "Western Australia",
+                "Riyadh",
+                "Jeddah",
+                "Eastern province",
+                "Mecca",
+                "Al Hufuf",
+                "Al baha",
+                "Jamaica",
             };
         }
 
