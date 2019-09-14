@@ -5,11 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@ViewBag.Title</title>
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
-</head>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    </head>
 <body>
-    <div class="container-fluid">
-        @RenderBody()
-    </div>    
-</body>
+<div class="container-fluid">
+    @RenderBody()
+</div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/bootstrap-select")
+@RenderSection("scripts", required: false)</body>
 </html>

@@ -12,10 +12,19 @@ namespace Dropdowns
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
+         
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                "~/Scripts/bootstrap.js"));
+            
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap-select").Include(
+                "~/Scripts/bootstrap-select.js"));
 
+            bundles.Add(new StyleBundle("~/Content/css").Include(
+                "~/Content/bootstrap.css",
+                "~/Content/bootstrap-select.css",
+                "~/Content/site.css"));
             // Set EnableOptimizations to false for debugging. For more information,
             // visit http://go.microsoft.com/fwlink/?LinkId=301862
-            BundleTable.EnableOptimizations = true;
         }
     }
 }
